@@ -14,6 +14,12 @@ import {
   DropdownMenuTrigger,
 } from "@/components/ui/dropdown-menu";
 import { Product } from "@/lib/definitions";
+import { doc, deleteDoc } from "firebase/firestore";
+import { db } from "@/lib/firebase";
+
+const handleDelete = async (productId: string) => {
+  await deleteDoc(doc(db, "products", productId));
+};
 
 export const columns: ColumnDef<Product>[] = [
   {
@@ -54,7 +60,7 @@ export const columns: ColumnDef<Product>[] = [
             </DropdownMenuItem>
             <DropdownMenuSeparator />
             <DropdownMenuItem>Edit</DropdownMenuItem>
-            <DropdownMenuItem>Delete</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleDelete(product.id)}>Delete</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );
