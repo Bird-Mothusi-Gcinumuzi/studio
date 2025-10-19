@@ -1,7 +1,6 @@
-
 import fs from "fs";
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "../src/lib/firebase";
+import { db } from "../lib/firebase";
 
 const products = JSON.parse(fs.readFileSync("dank-products.json", "utf-8"));
 
