@@ -1,24 +1,20 @@
-'use client';
+"use client";
 
-import { useEffect, useState } from 'react';
-import { collection, onSnapshot, getFirestore } from 'firebase/firestore';
-import { app } from '@/lib/firebase';
-import { DataTable } from './components/data-table';
-import { columns } from './components/columns';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '@/components/ui/card';
-import { User } from '@/lib/definitions';
+import { useEffect, useState } from "react";
+import { collection, onSnapshot } from "firebase/firestore";
+import { db } from "@/lib/firebase";
+import { User, columns } from "./components/columns";
+import { DataTable } from "./components/data-table";
 
-const db = getFirestore(app);
-
-export default function UsersPage() {
+const UsersPage = () => {
   const [users, setUsers] = useState<User[]>([]);
 
   useEffect(() => {
-    const unsubscribe = onSnapshot(collection(db, 'users'), (querySnapshot) => {
-      const usersData: User[] = [];
-      querySnapshot.forEach((doc) => {
-        usersData.push({ id: doc.id, ...doc.data() } as User);
-      });
+    const unsubscribe = onSnapshot(collection(db, "users"), (snapshot) => {
+      const usersData = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      })) as User[];
       setUsers(usersData);
     });
 
@@ -26,14 +22,11 @@ export default function UsersPage() {
   }, []);
 
   return (
-    <Card>
-      <CardHeader>
-        <CardTitle>User Management</CardTitle>
-        <CardDescription>View, edit, and manage all user accounts in the system.</CardDescription>
-      </CardHeader>
-      <CardContent>
-        <DataTable columns={columns} data={users} />
-      </CardContent>
-    </Card>
+    <div className="container mx-auto py-10">
+      <h1 className="text-2xl font-bold mb-4">User Management</h1>
+      <DataTable columns={columns} data={users} />
+    </div>
   );
-}
+};
+
+export default UsersPage;

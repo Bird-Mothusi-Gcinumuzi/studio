@@ -1,4 +1,6 @@
-import { ShopHeader } from '@/components/shop/header';
+
+import Header from "@/components/shop/header";
+import { CartProvider } from "@/context/cart-context";
 
 export default function ShopLayout({
   children,
@@ -6,9 +8,9 @@ export default function ShopLayout({
   children: React.ReactNode;
 }) {
   return (
-    <div className="min-h-screen bg-background">
-      <ShopHeader />
-      <main>{children}</main>
-    </div>
+    <CartProvider>
+      <Header />
+      {children}
+    </CartProvider>
   );
 }

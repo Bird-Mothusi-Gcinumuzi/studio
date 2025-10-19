@@ -1,44 +1,28 @@
-'use client';
+"use client";
 
-import { usePathname, useRouter } from 'next/navigation';
-import { useEffect, useState } from 'react';
-import { getAuth, onAuthStateChanged } from 'firebase/auth';
-import { app } from '@/lib/firebase';
+import { useAuth } from "@/context/auth-context";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
 
-const auth = getAuth(app);
-
-export default function AdminAuthWrapper({ children }: { children: React.ReactNode }) {
+const AdminAuthWrapper = ({ children }: { children: React.ReactNode }) => {
+  const { user, loading } = useAuth();
   const router = useRouter();
-  const [isAdmin, setIsAdmin] = useState(false);
-  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    const unsubscribe = onAuthStateChanged(auth, async (user) => {
-      if (user) {
-        const idTokenResult = await user.getIdTokenResult();
-        setIsAdmin(idTokenResult.claims.admin === true);
-      } else {
-        setIsAdmin(false);
-      }
-      setLoading(false);
-    });
-
-    return () => unsubscribe();
-  }, []);
-
-  useEffect(() => {
-    if (!loading && !isAdmin) {
-      router.push('/');
+    if (!loading && (!user || !user.roles?.includes("admin"))) {
+      router.push("/");
     }
-  }, [isAdmin, loading, router]);
+  }, [user, loading, router]);
 
-  if (loading) {
-    return <div>Loading...</div>; // Or a proper skeleton loader
-  }
-
-  if (!isAdmin) {
-    return null;
+  if (loading || !user || !user.roles?.includes("admin")) {
+    return (
+      <div className="flex items-center justify-center h-screen">
+        <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900 dark:border-gray-100"></div>
+      </div>
+    );
   }
 
   return <>{children}</>;
-}
+};
+
+export default AdminAuthWrapper;

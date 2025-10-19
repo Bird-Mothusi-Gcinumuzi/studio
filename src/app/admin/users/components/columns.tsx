@@ -1,9 +1,9 @@
-'use client';
+"use client";
 
-import type { ColumnDef } from '@tanstack/react-table';
-import type { User } from '@/lib/definitions';
-import { MoreHorizontal, ArrowUpDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+import { ColumnDef } from "@tanstack/react-table";
+import { ArrowUpDown, MoreHorizontal } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,68 +11,47 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-  DropdownMenuSub,
-  DropdownMenuSubTrigger,
-  DropdownMenuPortal,
-  DropdownMenuSubContent,
-} from '@/components/ui/dropdown-menu';
-import { Badge } from '@/components/ui/badge';
-import { cn } from '@/lib/utils';
-import { doc, getFirestore, updateDoc } from 'firebase/firestore';
-import { app } from '@/lib/firebase';
+} from "@/components/ui/dropdown-menu";
+import { doc, updateDoc } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
-const statusStyles = {
-    active: 'bg-status-green hover:bg-status-green/80',
-    pending: 'bg-status-yellow hover:bg-status-yellow/80',
-    deactivated: 'bg-status-red hover:bg-status-red/80',
-}
+export type User = {
+  id: string;
+  fullName: string;
+  email: string;
+  status: "Pending Approval" | "Approved" | "Deactivated";
+};
 
-async function updateUserStatus(userId: string, status: 'active' | 'pending' | 'deactivated') {
-  const db = getFirestore(app);
-  const userRef = doc(db, 'users', userId);
+const handleStatusChange = async (userId: string, status: string) => {
+  const userRef = doc(db, "users", userId);
   await updateDoc(userRef, { status });
-}
+};
 
 export const columns: ColumnDef<User>[] = [
   {
-    accessorKey: 'name',
+    accessorKey: "fullName",
+    header: "Full Name",
+  },
+  {
+    accessorKey: "email",
     header: ({ column }) => {
       return (
         <Button
           variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
+          onClick={() => column.toggleSorting(column.getIsSorted() === "asc")}
         >
-          Name
+          Email
           <ArrowUpDown className="ml-2 h-4 w-4" />
         </Button>
       );
     },
-    cell: ({ row }) => (
-        <div className="flex flex-col">
-            <span className="font-medium">{row.original.name}</span>
-            <span className="text-muted-foreground">{row.original.email}</span>
-        </div>
-    )
   },
   {
-    accessorKey: 'status',
-    header: 'Status',
-    cell: ({ row }) => {
-      const status = row.getValue('status') as User['status'];
-      return (
-        <Badge className={cn("capitalize text-primary-foreground", statusStyles[status])}>
-          {status}
-        </Badge>
-      );
-    },
-  },
-   {
-    accessorKey: 'role',
-    header: 'Role',
-    cell: ({ row }) => <span className="capitalize">{row.original.role}</span>
+    accessorKey: "status",
+    header: "Status",
   },
   {
-    id: 'actions',
+    id: "actions",
     cell: ({ row }) => {
       const user = row.original;
 
@@ -92,19 +71,8 @@ export const columns: ColumnDef<User>[] = [
               Copy user ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
-            <DropdownMenuSub>
-              <DropdownMenuSubTrigger>Change Status</DropdownMenuSubTrigger>
-              <DropdownMenuPortal>
-                <DropdownMenuSubContent>
-                  <DropdownMenuItem onClick={() => updateUserStatus(user.id, 'active')}>Active</DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => updateUserStatus(user.id, 'pending')}>Pending</DropdownMenuItem>
-                  <DropdownMenuItem onClick={() => updateUserStatus(user.id, 'deactivated')}>Deactivated</DropdownMenuItem>
-                </DropdownMenuSubContent>
-              </DropdownMenuPortal>
-            </DropdownMenuSub>
-            <DropdownMenuItem>View details</DropdownMenuItem>
-            <DropdownMenuItem>Edit user</DropdownMenuItem>
-            <DropdownMenuItem className="text-destructive focus:text-destructive focus:bg-destructive/10">Delete user</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleStatusChange(user.id, "Approved")}>Approve</DropdownMenuItem>
+            <DropdownMenuItem onClick={() => handleStatusChange(user.id, "Deactivated")}>Deactivate</DropdownMenuItem>
           </DropdownMenuContent>
         </DropdownMenu>
       );

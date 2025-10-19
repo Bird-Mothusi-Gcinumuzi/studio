@@ -1,83 +1,46 @@
-import type { ReactNode } from 'react';
-import {
-  SidebarProvider,
-  Sidebar,
-  SidebarHeader,
-  SidebarContent,
-  SidebarMenu,
-  SidebarMenuItem,
-  SidebarMenuButton,
-  SidebarFooter,
-  SidebarInset,
-  SidebarTrigger,
-} from '@/components/ui/sidebar';
-import { LayoutDashboard, Users, ShoppingBag, LogOut } from 'lucide-react';
-import { Logo } from '@/components/logo';
-import AdminAuthWrapper from '@/components/admin-auth-wrapper';
+"use client";
 
-const menuItems = [
-  {
-    href: '/admin/dashboard',
-    label: 'Dashboard',
-    icon: LayoutDashboard,
-  },
-  {
-    href: '/admin/users',
-    label: 'Users',
-    icon: Users,
-  },
-  {
-    href: '/admin/products',
-    label: 'Products',
-    icon: ShoppingBag,
-  },
-];
+import AdminAuthWrapper from "@/components/admin-auth-wrapper";
+import { Button } from "@/components/ui/button";
+import { auth } from "@/lib/firebase";
+import Link from "next/link";
 
-export default function AdminLayout({ children }: { children: ReactNode }) {
+export default function AdminLayout({
+  children,
+}: {
+  children: React.ReactNode;
+}) {
   return (
     <AdminAuthWrapper>
-      <SidebarProvider>
-        <div className="flex min-h-screen">
-          <Sidebar>
-            <SidebarHeader>
-              <Logo />
-            </SidebarHeader>
-            <SidebarContent>
-              <SidebarMenu>
-                {menuItems.map((item) => (
-                  <SidebarMenuItem key={item.href}>
-                    <SidebarMenuButton href={item.href}
-                      tooltip={{ children: item.label, side:"right" }}
-                    >
-                      <item.icon />
-                      <span>{item.label}</span>
-                    </SidebarMenuButton>
-                  </SidebarMenuItem>
-                ))}
-              </SidebarMenu>
-            </SidebarContent>
-            <SidebarFooter>
-              <SidebarMenu>
-                <SidebarMenuItem>
-                  <SidebarMenuButton href="/"
-                   tooltip={{ children: "Logout", side:"right" }}
-                  >
-                    <LogOut />
-                    <span>Logout</span>
-                  </SidebarMenuButton>
-                </SidebarMenuItem>
-              </SidebarMenu>
-            </SidebarFooter>
-          </Sidebar>
-          <SidebarInset>
-              <header className="flex h-16 items-center gap-4 border-b bg-background px-4 md:px-6">
-                  <SidebarTrigger className="md:hidden"/>
-                  <h1 className="flex-1 text-lg font-semibold md:text-2xl">Admin Panel</h1>
-              </header>
-              <main className="flex-1 p-4 md:p-6">{children}</main>
-          </SidebarInset>
+      <div className="flex h-screen">
+        <div className="w-64 bg-gray-800 text-white p-4 flex flex-col">
+          <div>
+            <h2 className="text-xl font-bold mb-4">Admin Panel</h2>
+            <nav>
+              <ul>
+                <li className="mb-2">
+                  <Link href="/admin/dashboard">Dashboard</Link>
+                </li>
+                <li className="mb-2">
+                  <Link href="/admin/users">Users</Link>
+                </li>
+                <li className="mb-2">
+                  <Link href="/admin/products">Products</Link>
+                </li>
+              </ul>
+            </nav>
+          </div>
+          <div className="mt-auto">
+            <Link href="/shop/cannabis" passHref>
+              <Button variant="outline" className="w-full mb-2">View Shop</Button>
+            </Link>
+            <Button onClick={() => auth.signOut()} className="w-full">Logout</Button>
+          </div>
         </div>
-      </SidebarProvider>
+        <div className="flex-1 p-6 bg-gray-100 dark:bg-gray-900 overflow-y-auto">
+          {children}
+        </div>
+      </div>
     </AdminAuthWrapper>
   );
 }

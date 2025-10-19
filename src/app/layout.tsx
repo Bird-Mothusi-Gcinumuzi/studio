@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Toaster } from '@/components/ui/toaster';
 import './globals.css';
+import { AuthProvider } from '@/context/auth-context';
 import AuthWrapper from '@/components/auth-wrapper';
 
 export const metadata: Metadata = {
@@ -21,7 +22,9 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        <AuthWrapper>{children}</AuthWrapper>
+        <AuthProvider>
+          <AuthWrapper>{children}</AuthWrapper>
+        </AuthProvider>
         <Toaster />
       </body>
     </html>

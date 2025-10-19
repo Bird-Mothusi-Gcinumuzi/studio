@@ -1,57 +1,61 @@
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardHeader, CardTitle, CardFooter } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Leaf } from 'lucide-react';
+"use client";
 
-export default function RegisterPage() {
+import { Button } from "@/components/ui/button";
+import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
+import { Input } from "@/components/ui/input";
+import { Label } from "@/components/ui/label";
+import { useForm } from "react-hook-form";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { doc, setDoc } from "firebase/firestore";
+import { auth, db } from "@/lib/firebase";
+import { useRouter } from "next/navigation";
+
+const RegisterPage = () => {
+  const { register, handleSubmit } = useForm();
+  const router = useRouter();
+
+  const onSubmit = async (data: any) => {
+    try {
+      const userCredential = await createUserWithEmailAndPassword(auth, data.email, data.password);
+      const user = userCredential.user;
+      await setDoc(doc(db, "users", user.uid), {
+        fullName: data.fullName,
+        email: data.email,
+        status: "Pending Approval",
+        roles: ["customer"],
+      });
+      router.push("/pending-approval");
+    } catch (error) {
+      console.error("Error signing up:", error);
+    }
+  };
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-8 bg-background">
-      <div className="flex flex-col items-center justify-center text-center mb-8">
-        <div className="bg-primary p-3 rounded-full mb-4">
-          <Leaf className="h-8 w-8 text-primary-foreground" />
-        </div>
-        <h1 className="text-5xl font-headline text-primary-foreground">Verdant Vista</h1>
-        <p className="text-muted-foreground mt-2">Create Your Account</p>
-      </div>
-
-      <Card className="w-full max-w-sm">
+    <div className="flex items-center justify-center min-h-screen bg-gray-100 dark:bg-gray-900">
+      <Card className="w-full max-w-md">
         <CardHeader>
-          <CardTitle className="text-2xl">Register</CardTitle>
-          <CardDescription>
-            Join our community. All new accounts require admin approval.
-          </CardDescription>
+          <CardTitle>Register</CardTitle>
         </CardHeader>
-        <CardContent className="grid gap-4">
-          <div className="grid gap-2">
-            <Label htmlFor="name">Full Name</Label>
-            <Input id="name" placeholder="John Doe" required />
-          </div>
-          <div className="grid gap-2">
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" placeholder="m@example.com" required />
-          </div>
-          <div className="grid gap-2">
-            <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" required />
-          </div>
+        <CardContent>
+          <form onSubmit={handleSubmit(onSubmit)} className="space-y-4">
+            <div>
+              <Label htmlFor="fullName">Full Name</Label>
+              <Input id="fullName" {...register("fullName")} />
+            </div>
+            <div>
+              <Label htmlFor="email">Email</Label>
+              <Input id="email" type="email" {...register("email")} />
+            </div>
+            <div>
+              <Label htmlFor="password">Password</Label>
+              <Input id="password" type="password" {...register("password")} />
+            </div>
+            <Button type="submit" className="w-full">Register</Button>
+          </form>
         </CardContent>
-        <CardFooter className="flex flex-col gap-4">
-           <Button className="w-full" asChild>
-            <Link href="/pending-approval">Create Account</Link>
-          </Button>
-          <div className="text-center text-sm text-muted-foreground">
-            Already have an account?{' '}
-            <Link href="/" className="underline hover:text-primary">
-              Login
-            </Link>
-          </div>
-        </CardFooter>
       </Card>
-        <p className="text-xs text-muted-foreground mt-6 text-center max-w-sm">
-        Note: Upon registration, you will be taken to a "Pending Approval" page. In a real application, this would happen automatically after form submission.
-      </p>
-    </main>
+    </div>
   );
-}
+};
+
+export default RegisterPage;

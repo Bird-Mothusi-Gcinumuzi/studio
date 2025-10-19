@@ -1,60 +1,25 @@
-import Link from 'next/link';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Label } from '@/components/ui/label';
-import { Leaf } from 'lucide-react';
 
-export default function LoginPage() {
+"use client";
+
+import { useAuth } from "@/context/auth-context";
+import { useRouter } from "next/navigation";
+import { useEffect } from "react";
+
+const HomePage = () => {
+  const { user, loading } = useAuth();
+  const router = useRouter();
+
+  useEffect(() => {
+    if (!loading && user) {
+      router.push("/shop/cannabis");
+    }
+  }, [user, loading, router]);
+
   return (
-    <main className="flex min-h-screen flex-col items-center justify-center p-8 bg-background">
-      <div className="flex flex-col items-center justify-center text-center mb-8">
-        <div className="bg-primary p-3 rounded-full mb-4">
-          <Leaf className="h-8 w-8 text-primary-foreground" />
-        </div>
-        <h1 className="text-5xl font-headline text-primary-foreground">Verdant Vista</h1>
-        <p className="text-muted-foreground mt-2">Enter the garden of green.</p>
-      </div>
-
-      <Card className="w-full max-w-sm">
-        <CardHeader>
-          <CardTitle className="text-2xl">Login</CardTitle>
-          <CardDescription>
-            Access to the shop is restricted to approved members.
-          </CardDescription>
-        </CardHeader>
-        <CardContent className="grid gap-4">
-          <div className="grid gap-2">
-            <Label htmlFor="email">Email</Label>
-            <Input id="email" type="email" placeholder="m@example.com" required />
-          </div>
-          <div className="grid gap-2">
-            <Label htmlFor="password">Password</Label>
-            <Input id="password" type="password" required />
-          </div>
-        </CardContent>
-        <CardFooter className="flex flex-col gap-4">
-          <Button className="w-full" asChild>
-            <Link href="/shop/cannabis">Login as Customer</Link>
-          </Button>
-          <div className="text-center text-sm text-muted-foreground">
-            <p>Don't have an account?{' '}
-              <Link href="/register" className="underline hover:text-primary">
-                Register
-              </Link>
-            </p>
-             <p className="mt-2">
-              Are you an admin?{' '}
-              <Link href="/admin" className="underline hover:text-primary">
-                Login here
-              </Link>
-            </p>
-          </div>
-        </CardFooter>
-      </Card>
-      <p className="text-xs text-muted-foreground mt-6 text-center max-w-sm">
-        Note: For demonstration, login is simulated. Click the buttons above to enter the site as a pre-approved customer or an administrator.
-      </p>
-    </main>
+    <div className="flex items-center justify-center h-screen">
+      <div className="animate-spin rounded-full h-32 w-32 border-t-2 border-b-2 border-gray-900 dark:border-gray-100"></div>
+    </div>
   );
-}
+};
+
+export default HomePage;

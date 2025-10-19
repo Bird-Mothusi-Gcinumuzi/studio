@@ -1,9 +1,10 @@
-'use client';
 
-import type { ColumnDef } from '@tanstack/react-table';
-import type { Product } from '@/lib/definitions';
-import { MoreHorizontal, ArrowUpDown } from 'lucide-react';
-import { Button } from '@/components/ui/button';
+"use client";
+
+import { ColumnDef } from "@tanstack/react-table";
+import { MoreHorizontal } from "lucide-react";
+
+import { Button } from "@/components/ui/button";
 import {
   DropdownMenu,
   DropdownMenuContent,
@@ -11,112 +12,51 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
-} from '@/components/ui/dropdown-menu';
-import Image from 'next/image';
-import { Badge } from '@/components/ui/badge';
-import { doc, deleteDoc, getFirestore } from 'firebase/firestore';
-import { app } from '@/lib/firebase';
-import { EditProductDialog } from './edit-product-dialog';
-import { UpdateStockDialog } from './update-stock-dialog';
-
-const db = getFirestore(app);
-
-async function deleteProduct(productId: string) {
-  if (confirm('Are you sure you want to delete this product?')) {
-    const productRef = doc(db, 'products', productId);
-    await deleteDoc(productRef);
-  }
-}
+} from "@/components/ui/dropdown-menu";
+import { Product } from "@/lib/definitions";
 
 export const columns: ColumnDef<Product>[] = [
   {
-    accessorKey: 'name',
-    header: ({ column }) => {
-      return (
-        <Button
-          variant="ghost"
-          onClick={() => column.toggleSorting(column.getIsSorted() === 'asc')}
-        >
-          Product
-          <ArrowUpDown className="ml-2 h-4 w-4" />
-        </Button>
-      );
-    },
-    cell: ({ row }) => {
-      const product = row.original;
-      return (
-        <div className="flex items-center gap-4">
-            <Image
-                src={product.imageUrl}
-                alt={product.name}
-                width={48}
-                height={48}
-                className="rounded-md object-cover"
-                data-ai-hint={product.imageHint}
-            />
-            <div className="font-medium">{product.name}</div>
-        </div>
-      )
-    },
+    accessorKey: "name",
+    header: "Name",
   },
   {
-    accessorKey: 'category',
-    header: 'Category',
-    cell: ({ row }) => <Badge variant="secondary" className="capitalize">{row.original.category}</Badge>
+    accessorKey: "category",
+    header: "Category",
   },
   {
-    accessorKey: 'price',
-    header: () => <div className="text-right">Price</div>,
-    cell: ({ row }) => {
-      const amount = parseFloat(row.getValue('price'));
-      const formatted = new Intl.NumberFormat('en-US', {
-        style: 'currency',
-        currency: 'USD',
-      }).format(amount);
-      return <div className="text-right font-medium">{formatted}</div>;
-    },
-  },
-    {
-    accessorKey: 'stockLevel',
-    header: () => <div className="text-right">Stock</div>,
-    cell: ({ row }) => {
-      const stock = parseInt(row.getValue('stockLevel'), 10);
-      const stockColor = stock < 10 ? 'text-destructive' : stock < 50 ? 'text-yellow-500' : 'text-foreground';
-      return <div className={`text-right font-medium ${stockColor}`}>{stock}</div>;
-    },
+    accessorKey: "price",
+    header: "Price",
   },
   {
-    id: 'actions',
+    accessorKey: "stockLevel",
+    header: "Stock",
+  },
+  {
+    id: "actions",
     cell: ({ row }) => {
       const product = row.original;
 
       return (
-        <div className="text-right">
-            <DropdownMenu>
-            <DropdownMenuTrigger asChild>
-                <Button variant="ghost" className="h-8 w-8 p-0">
-                <span className="sr-only">Open menu</span>
-                <MoreHorizontal className="h-4 w-4" />
-                </Button>
-            </DropdownMenuTrigger>
-            <DropdownMenuContent align="end">
-                <DropdownMenuLabel>Actions</DropdownMenuLabel>
-                <DropdownMenuItem asChild>
-                  <EditProductDialog product={product} />
-                </DropdownMenuItem>
-                <DropdownMenuItem asChild>
-                  <UpdateStockDialog product={product} />
-                </DropdownMenuItem>
-                <DropdownMenuSeparator />
-                <DropdownMenuItem
-                  className="text-destructive focus:text-destructive focus:bg-destructive/10"
-                  onClick={() => deleteProduct(product.id)}
-                >
-                  Delete product
-                </DropdownMenuItem>
-            </DropdownMenuContent>
-            </DropdownMenu>
-        </div>
+        <DropdownMenu>
+          <DropdownMenuTrigger asChild>
+            <Button variant="ghost" className="h-8 w-8 p-0">
+              <span className="sr-only">Open menu</span>
+              <MoreHorizontal className="h-4 w-4" />
+            </Button>
+          </DropdownMenuTrigger>
+          <DropdownMenuContent align="end">
+            <DropdownMenuLabel>Actions</DropdownMenuLabel>
+            <DropdownMenuItem
+              onClick={() => navigator.clipboard.writeText(product.id)}
+            >
+              Copy product ID
+            </DropdownMenuItem>
+            <DropdownMenuSeparator />
+            <DropdownMenuItem>Edit</DropdownMenuItem>
+            <DropdownMenuItem>Delete</DropdownMenuItem>
+          </DropdownMenuContent>
+        </DropdownMenu>
       );
     },
   },

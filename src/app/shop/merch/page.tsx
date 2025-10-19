@@ -1,28 +1,22 @@
-'use client';
 
-import { useEffect, useState } from 'react';
-import { collection, query, where, onSnapshot, getFirestore } from 'firebase/firestore';
-import { app } from '@/lib/firebase';
-import { ProductCard } from '@/components/shop/product-card';
-import { Product } from '@/lib/definitions';
+"use client";
 
-const db = getFirestore(app);
+import { useEffect, useState } from "react";
+import { collection, onSnapshot, query, where } from "firebase/firestore";
+import { db } from "@/lib/firebase";
+import { ProductCard } from "@/components/shop/product-card";
+import { Product } from "@/lib/definitions";
 
-export default function MerchPage() {
+const MerchPage = () => {
   const [products, setProducts] = useState<Product[]>([]);
 
   useEffect(() => {
-    const q = query(
-      collection(db, 'products'),
-      where('category', '==', 'merch'),
-      where('stockLevel', '>', 0)
-    );
-
-    const unsubscribe = onSnapshot(q, (querySnapshot) => {
-      const productsData: Product[] = [];
-      querySnapshot.forEach((doc) => {
-        productsData.push({ id: doc.id, ...doc.data() } as Product);
-      });
+    const q = query(collection(db, "products"), where("category", "==", "merch"));
+    const unsubscribe = onSnapshot(q, (snapshot) => {
+      const productsData = snapshot.docs.map((doc) => ({
+        id: doc.id,
+        ...doc.data(),
+      })) as Product[];
       setProducts(productsData);
     });
 
@@ -30,13 +24,15 @@ export default function MerchPage() {
   }, []);
 
   return (
-    <div className="container py-8">
-      <h1 className="text-4xl font-headline tracking-wider mb-6">Our Merch</h1>
-      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6">
-        {products.map(product => (
+    <div className="container mx-auto py-10">
+      <h1 className="text-2xl font-bold mb-4">Merch</h1>
+      <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4">
+        {products.map((product) => (
           <ProductCard key={product.id} product={product} />
         ))}
       </div>
     </div>
   );
-}
+};
+
+export default MerchPage;

@@ -1,152 +1,109 @@
-'use client';
+"use client";
 
-import { useCart } from '@/context/cart-context';
-import { Button } from '@/components/ui/button';
-import { Card, CardContent, CardFooter, CardHeader, CardTitle } from '@/components/ui/card';
-import { Input } from '@/components/ui/input';
-import { Separator } from '@/components/ui/separator';
-import { Minus, Plus, ShoppingCart, Trash2, X } from 'lucide-react';
-import Image from 'next/image';
-import Link from 'next/link';
-import { useTransition } from 'react';
-import { useToast } from '@/hooks/use-toast';
-import { getFunctions, httpsCallable } from 'firebase/functions';
-import { app, auth } from '@/lib/firebase';
+import { useCart } from "@/context/cart-context";
+import { Button } from "@/components/ui/button";
+import { Input } from "@/components/ui/input";
+import Image from "next/image";
+import { useRouter } from "next/navigation";
+import { useAuth } from "@/context/auth-context";
+import { addDoc, collection, serverTimestamp } from "firebase/firestore";
+import { db } from "@/lib/firebase";
 
-export default function CartPage() {
-  const { cartItems, updateQuantity, removeFromCart, cartTotal, clearCart } = useCart();
-  const [isPending, startTransition] = useTransition();
-  const { toast } = useToast();
+const CartPage = () => {
+  const { cart, removeFromCart, updateQuantity } = useCart();
+  const { user } = useAuth();
+  const router = useRouter();
 
-  const handleCheckout = () => {
-    startTransition(async () => {
-      const functions = getFunctions(app);
-      const triggerCheckoutAndWhatsapp = httpsCallable(functions, 'triggerCheckoutAndWhatsapp');
+  const total = cart.reduce(
+    (acc, item) => acc + item.product.price * item.quantity,
+    0
+  );
 
-      try {
-        const result = await triggerCheckoutAndWhatsapp({
-          uid: auth.currentUser?.uid,
-          cartContents: cartItems.map(item => ({
-            id: item.product.id,
-            name: item.product.name,
-            price: item.product.price,
-            quantity: item.quantity,
-          })),
-        });
+  const handleCheckout = async () => {
+    const checkoutLog = {
+      userId: user.uid,
+      cartSnapshot: cart.map((item) => ({
+        productName: item.product.name,
+        quantity: item.quantity,
+        price: item.product.price,
+      })),
+      totalValue: total,
+      timestamp: serverTimestamp(),
+    };
 
-        const data = result.data as { whatsappUrl: string };
+    try {
+      await addDoc(collection(db, "checkouts"), checkoutLog);
 
-        // Open WhatsApp in a new tab
-        window.open(data.whatsappUrl, '_blank');
+      const orderSummary = `Date: ${new Date().toLocaleString()}
+Order ID: ${Date.now()}
+Customer: ${user.fullName}
 
-        toast({
-          title: 'Order Sent!',
-          description: 'Your order has been formatted and sent to WhatsApp for completion.',
-        });
+Items:
+${cart
+        .map(
+          (item) =>
+            `${item.product.name} (x${item.quantity}) - $${(item.product.price * item.quantity).toFixed(2)}`
+        )
+        .join("\n")}
 
-        clearCart();
-      } catch (error) {
-        console.error('Error triggering checkout:', error);
-        toast({
-          variant: 'destructive',
-          title: 'Checkout Error',
-          description: 'There was an error processing your checkout. Please try again.',
-        });
-      }
-    });
+Total: $${total.toFixed(2)}`;
+
+      const whatsappUrl = `https://wa.me/?text=${encodeURIComponent(
+        orderSummary
+      )}`;
+      window.open(whatsappUrl, "_blank");
+    } catch (error) {
+      console.error("Error during checkout: ", error);
+    }
   };
 
-  if (cartItems.length === 0) {
-    return (
-      <div className="container py-12 text-center">
-        <ShoppingCart className="mx-auto h-24 w-24 text-muted-foreground" />
-        <h1 className="mt-6 text-3xl font-headline tracking-wider">Your Cart is Empty</h1>
-        <p className="mt-2 text-muted-foreground">Looks like you haven't added anything to your cart yet.</p>
-        <Button asChild className="mt-6">
-          <Link href="/shop/cannabis">Start Shopping</Link>
-        </Button>
-      </div>
-    );
-  }
-
   return (
-    <div className="container py-8">
-      <h1 className="text-4xl font-headline tracking-wider mb-6">Your Cart</h1>
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8 items-start">
-        <div className="lg:col-span-2">
-          <Card>
-            <CardContent className="p-0">
-              <ul className="divide-y divide-border">
-                {cartItems.map(item => (
-                  <li key={item.product.id} className="flex items-center gap-4 p-4">
-                    <Image
-                      src={item.product.imageUrl}
-                      alt={item.product.name}
-                      width={80}
-                      height={80}
-                      className="rounded-md object-cover"
-                      data-ai-hint={item.product.imageHint}
-                    />
-                    <div className="flex-grow">
-                      <p className="font-medium">{item.product.name}</p>
-                      <p className="text-sm text-muted-foreground">${item.product.price.toFixed(2)}</p>
-                    </div>
-                    <div className="flex items-center gap-2">
-                      <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => updateQuantity(item.product.id, item.quantity - 1)}>
-                        <Minus className="h-4 w-4" />
-                      </Button>
-                      <Input
-                        type="number"
-                        value={item.quantity}
-                        onChange={(e) => updateQuantity(item.product.id, parseInt(e.target.value, 10) || 1)}
-                        className="w-16 h-8 text-center"
-                      />
-                      <Button variant="outline" size="icon" className="h-8 w-8" onClick={() => updateQuantity(item.product.id, item.quantity + 1)}>
-                        <Plus className="h-4 w-4" />
-                      </Button>
-                    </div>
-                    <p className="w-20 text-right font-medium">${(item.product.price * item.quantity).toFixed(2)}</p>
-                    <Button variant="ghost" size="icon" onClick={() => removeFromCart(item.product.id)}>
-                      <Trash2 className="h-5 w-5 text-muted-foreground hover:text-destructive" />
-                    </Button>
-                  </li>
-                ))}
-              </ul>
-            </CardContent>
-          </Card>
+    <div className="container mx-auto py-10">
+      <h1 className="text-2xl font-bold mb-4">Cart</h1>
+      {cart.length === 0 ? (
+        <p>Your cart is empty.</p>
+      ) : (
+        <div>
+          {cart.map((item) => (
+            <div key={item.product.id} className="flex items-center justify-between mb-4">
+              <div className="flex items-center">
+                <div className="relative h-24 w-24 mr-4">
+                  <Image
+                    src={item.product.imageUrl}
+                    alt={item.product.name}
+                    layout="fill"
+                    objectFit="cover"
+                  />
+                </div>
+                <div>
+                  <h2 className="font-bold">{item.product.name}</h2>
+                  <p>${item.product.price}</p>
+                </div>
+              </div>
+              <div className="flex items-center">
+                <Input
+                  type="number"
+                  min="1"
+                  value={item.quantity}
+                  onChange={(e) =>
+                    updateQuantity(item.product.id, parseInt(e.target.value))
+                  }
+                  className="w-16"
+                />
+                <Button variant="destructive" onClick={() => removeFromCart(item.product.id)} className="ml-4">Remove</Button>
+              </div>
+            </div>
+          ))}
+          <div className="text-right font-bold text-xl mt-4">
+            Total: ${total.toFixed(2)}
+          </div>
+          <div className="text-right mt-4">
+            <Button onClick={handleCheckout}>Initiate Checkout</Button>
+          </div>
         </div>
-        
-        <div className="lg:col-span-1 sticky top-24">
-          <Card>
-            <CardHeader>
-              <CardTitle>Order Summary</CardTitle>
-            </CardHeader>
-            <CardContent className="grid gap-4">
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Subtotal</span>
-                <span>${cartTotal.toFixed(2)}</span>
-              </div>
-              <div className="flex justify-between">
-                <span className="text-muted-foreground">Shipping</span>
-                <span>Calculated at next step</span>
-              </div>
-              <Separator />
-              <div className="flex justify-between font-bold text-lg">
-                <span>Total</span>
-                <span>${cartTotal.toFixed(2)}</span>
-              </div>
-            </CardContent>
-            <CardFooter>
-              <Button className="w-full" onClick={handleCheckout} disabled={isPending}>
-                {isPending ? 'Processing...' : 'Checkout via WhatsApp'}
-              </Button>
-            </CardFooter>
-          </Card>
-           <p className="text-xs text-muted-foreground mt-4 text-center">
-            Clicking checkout will open WhatsApp with your pre-filled order. You can then confirm and send your order to us.
-          </p>
-        </div>
-      </div>
+      )}
     </div>
   );
-}
+};
+
+export default CartPage;
