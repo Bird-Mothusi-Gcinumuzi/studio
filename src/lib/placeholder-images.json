@@ -1,3 +1,52 @@
 {
-  "placeholderImages": []
+  "placeholderImages": [
+    {
+      "id": "prod_cannabis_1",
+      "description": "Premium OG Kush flower buds.",
+      "imageUrl": "https://images.unsplash.com/photo-1652054647785-7e33ab510110?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw4fHxjYW5uYWJpcyUyMGJ1ZHN8ZW58MHx8fHwxNzYwODY3OTM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cannabis buds"
+    },
+    {
+      "id": "prod_cannabis_2",
+      "description": "High-potency CBD oil tincture.",
+      "imageUrl": "https://images.unsplash.com/photo-1623491310426-fc28591c5625?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw0fHxjYmQlMjBvaWx8ZW58MHx8fHwxNzYwODY3OTM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cbd oil"
+    },
+    {
+      "id": "prod_cannabis_3",
+      "description": "Delicious THC-infused gummy edibles.",
+      "imageUrl": "https://images.unsplash.com/photo-1618427105274-f3a4f72f8104?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw5fHxjYW5uYWJpcyUyMGVkaWJsZXN8ZW58MHx8fHwxNzYwODY3OTM5fDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cannabis edibles"
+    },
+    {
+      "id": "prod_cannabis_4",
+      "description": "A potent Sativa strain, Sour Diesel.",
+      "imageUrl": "https://images.unsplash.com/photo-1626106576760-d64336d3fa5b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxjYW5uYWJpcyUyMGZsb3dlcnxlbnwwfHx8fDE3NjA4Njc5Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "cannabis flower"
+    },
+    {
+      "id": "prod_merch_1",
+      "description": "Black t-shirt with Verdant Vista logo.",
+      "imageUrl": "https://images.unsplash.com/photo-1759572095384-1a7e646d0d4f?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHw1fHxibGFjayUyMHQtc2hpcnR8ZW58MHx8fHwxNzYwNzU5MjkyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "black t-shirt"
+    },
+    {
+      "id": "prod_merch_2",
+      "description": "Verdant Vista branded baseball cap.",
+      "imageUrl": "https://images.unsplash.com/photo-1534215754734-18e55d13e346?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxMHx8YmFzZWJhbGwlMjBjYXB8ZW58MHx8fHwxNzYwODU0NDIyfDA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "baseball cap"
+    },
+    {
+      "id": "prod_merch_3",
+      "description": "Premium 4-piece metal grinder.",
+      "imageUrl": "https://images.unsplash.com/photo-1611846627984-82141c9b7e1b?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwxfHxoZXJiJTIwZ3JpbmRlcnxlbnwwfHx8fDE3NjA4Njc5Mzl8MA&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "herb grinder"
+    },
+    {
+      "id": "prod_merch_4",
+      "description": "Branded rolling papers and tips.",
+      "imageUrl": "https://images.unsplash.com/photo-1650619198349-3fe15ba0c5ea?crop=entropy&cs=tinysrgb&fit=max&fm=jpg&ixid=M3w3NDE5ODJ8MHwxfHNlYXJjaHwzfHxyb2xsaW5nJTIwcGFwZXJzfGVufDB8fHx8MTc2MDg2NzkzOXww&ixlib=rb-4.1.0&q=80&w=1080",
+      "imageHint": "rolling papers"
+    }
+  ]
 }
