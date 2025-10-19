@@ -1,0 +1,685 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Dank Products - Dank of Zar</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="stylesheet" href="style.css">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&family=Pacifico&display=swap" rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/remixicon@4.5.0/fonts/remixicon.css" rel="stylesheet">
+    <script>
+        // Tailwind CSS configuration (if still in use)
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: { primary: '#4CAF50', secondary: '#E8F5E9' },
+                    borderRadius: { 'none': '0px', 'sm': '4px', DEFAULT: '8px', 'md': '12px', 'lg': '16px', 'xl': '20px', '2xl': '24px', '3xl': '32px', 'full': '9999px', 'button': '8px' }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="page-dank">
+
+    <header>
+        <nav class="navbar">
+            <div class="nav-logo">
+                <img src="assets/danklogonobg.png" alt="Dank of Zar Logo" class="logo-img">
+                <h1>Dank of Zar</h1>
+            </div>
+            <div class="nav-actions">
+                <ul class="nav-links">
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="dank.html" class="active">Dank Products</a></li>
+                    <li><a href="elevate.html">Elevate Wellness</a></li>
+                    <li><a href="dankinfo.html">Dank Info</a></li>
+                    <li><a href="cart.html"><i class="ri-shopping-cart-line"></i> Cart <span class="cart-count-badge" id="cart-count-main">0</span></a></li>
+                </ul>
+                <button id="themeToggle" class="theme-toggle-btn" aria-label="Toggle theme">
+                    <i class="ri-sun-line"></i>
+                </button>
+                <button class="mobile-menu-toggle" id="mobileMenuToggle" aria-label="Toggle mobile menu">
+                    <i class="ri-menu-line"></i>
+                </button>
+            </div>
+        </nav>
+        <div class="mobile-nav-links" id="mobileNavLinks">
+            <ul>
+                <li><a href="index.html">Home</a></li>
+                <li><a href="dank.html" class="active">Dank Products</a></li>
+                <li><a href="elevate.html">Elevate Wellness</a></li>
+                <li><a href="dankinfo.html">Dank Info</a></li>
+                <li><a href="cart.html"><i class="ri-shopping-cart-line"></i> Cart <span class="cart-count-badge" id="cart-count-mobile-main">0</span></a></li>
+                <li><a href="https://totallybaked.online" target="_blank">Totally Baked</a></li>
+                <li class="menu-divider">Page Sections</li>
+                <li><a href="#top-shelf-indoor" class="mobile-section-link">Top Shelf Indoor</a></li>
+                <li><a href="#aaa-grade-indoor" class="mobile-section-link">AAA Grade Indoor</a></li>
+                <li><a href="#indoor" class="mobile-section-link">Indoor</a></li>
+                <li><a href="#green-door" class="mobile-section-link">Green Door</a></li>
+                <li><a href="#pre-rolls" class="mobile-section-link">Pre-Rolls</a></li>
+                <li><a href="#concentrates" class="mobile-section-link">Concentrates</a></li>
+                <li><a href="#devices-vapes" class="mobile-section-link">Devices & Vapes</a></li>
+                <li><a href="#edibles" class="mobile-section-link">Edibles</a></li>
+                <li><a href="#magic-mushrooms" class="mobile-section-link">Magic Mushrooms</a></li>
+            </ul>
+        </div>
+    </header>
+
+    <div class="page-content-wrapper">
+        <div class="page-header-container">
+            <div class="page-logo-container">
+                <img src="assets/dankleafnobg.png" alt="Dank of Zar Logo" loading="lazy">
+            </div>
+            <span class="page-main-title">DANK OF ZAR</span>
+            <span class="page-subtitle">Premium Cannabis</span>
+        </div>
+
+        <main class="product-page-main-content">
+            <section id="top-shelf-indoor">
+                <h2 class="category-title"><span>Top Shelf Indoor</span> <span class="category-emoji">💎</span></h2>
+                <div class="product-grid">
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Gorilla Daddy" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Gorilla Daddy 🌿</h3>
+                                <div class="product-item-tags">Indica-dominant | THC: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="150">R150/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Indica-dominant hybrid (60/40) with 22-29% THC, delivering euphoric bliss and deep body relaxation. Earthy, spicy berry flavors with dense forest-green nugs. Ideal for pain, stress, and insomnia relief. Named for its potent, long-lasting effects reminiscent of a gorilla’s strength.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Jerry Gas Can" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Jerry Gas Can 🌿</h3>
+                                <div class="product-item-tags">Balanced Hybrid | THC: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="150">R150/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Sativa-leaning (70/30) with 18-19% THC, offering a hazy, creative high and skunky diesel aroma. Energizing yet relaxing, great for fatigue and mood elevation. The name nods to its fuel-like pungency and cerebral effects.</em></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="aaa-grade-indoor">
+                <h2 class="category-title"><span>AAA Grade Indoor</span> <span class="category-emoji">💎</span></h2>
+                <div class="product-grid">
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Jamaican Wedding Cake" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Jamaican Wedding Cake 🌿</h3>
+                                <div class="product-item-tags">Hybrid | THC: Medium</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="100">R100/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Balanced hybrid (50/50) with 22-29% THC, blending sugary vanilla cake flavors with citrusy euphoria. Promotes relaxation and social connection. A tropical twist on the classic Wedding Cake strain.</em></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="indoor">
+                <h2 class="category-title"><span>Indoor</span> <span class="category-emoji">🌱</span></h2>
+                <div class="product-grid">
+                     <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Do Si Dos" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Do Si Dos 🌿</h3>
+                                <div class="product-item-tags">Indica-dominant | THC: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="100">R100/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Potent indica (70/30) with pungent earthy notes and high THC (25-30%). Induces heavy body relaxation, ideal for evening use. Named for its cookie-dough aroma and lineage from Girl Scout Cookies.</em></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="green-door">
+                <h2 class="category-title"><span>Green Door</span> <span class="category-emoji">🌿</span></h2>
+                <div class="product-grid">
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Cali Orange" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Cali Orange 🌿</h3>
+                                <div class="product-item-tags">Sativa-dominant | THC: Medium</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="60">R60/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Sativa-dominant with zesty citrus flavors and medium THC (15-18%). Uplifting yet balanced, perfect for daytime focus. A tribute to California’s sun-grown citrus heritage.</em></div>
+                    </div>
+                     <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="10g Flower Pack" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">10g Flower Pack 🌿</h3>
+                                <div class="product-item-tags">Mixed</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="500">R500</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Mixed indoor/outdoor flower (10g) for bulk buyers. Strains may include Cali Orange (sativa) or Do Si Dos (indica). Economical for daily users.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="6g Cigars" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">6g Cigars 🌿</h3>
+                                <div class="product-item-tags">Indica | THC: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="600">R600</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Hand-rolled with top-shelf flower and wrapped in tobacco or hemp leaf for slow combustion. Rich, flavorful smoke with indica-dominant effects for relaxation. A luxurious, slow-burning experience.</em></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="pre-rolls">
+                <h2 class="category-title"><span>Pre-Rolls</span> <span class="category-emoji">🚬</span></h2>
+                <div class="product-grid">
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Indoor 1¼ Size" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Indoor 1¼ Size 🚬</h3>
+                                <div class="product-item-tags">Balanced | THC: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="90">R90 each</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Compact pre-rolls with indoor-grown flower (1.25g each), offering a balanced high (20-25% THC). Quick, convenient, and ideal for creative or social settings.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Indoor King Size" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Indoor King Size 🚬</h3>
+                                <div class="product-item-tags">Balanced | THC: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="150">R150 each</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Larger pre-rolls (1g+) with premium indoor flower, delivering a long-lasting, uplifting high. Smooth burn with flavors accentuated by slow combustion.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Green Door 1¼" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Green Door 1¼ 🚬</h3>
+                                <div class="product-item-tags">Indica | THC: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="60">R60 each</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Budget-friendly pre-rolls with sativa-dominant greenhouse flower (1.25g). Citrusy and energizing, perfect for daytime use. Named for the "green door" of accessible quality.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Green Door King" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Green Door King 🚬</h3>
+                                <div class="product-item-tags">Indica | THC: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="100">R100 each</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Extended-size version of Green Door’s sativa blend (1g+), offering prolonged euphoria and focus. A cost-effective option for extended sessions.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Moonsticks" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Moonsticks 🚬</h3>
+                                <div class="product-item-tags">Infused | THC: Very High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="200">R200 each</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Infused with distillate + kief for very high THC (30%+). Intense, long-lasting effects with a smooth burn. Named for its celestial, mind-expanding potency.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="5 Pack" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">5 Pack 🚬</h3>
+                                <div class="product-item-tags">Mixed</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="250">R250–R450</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Curated bundle of pre-rolls (mixed strains), offering variety and convenience. Ideal for sampling or gifting. Strains may include hybrids like Jamaican Wedding Cake.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="10 Pack" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">10 Pack 🚬</h3>
+                                <div class="product-item-tags">Mixed</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="750">R750</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Bulk pre-roll set (10 units) for value-focused buyers. Consistent quality with options like indica-heavy Do Si Dos or balanced hybrids.</em></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="concentrates">
+                <h2 class="category-title"><span>Concentrates</span> <span class="category-emoji">💎</span></h2>
+                <div class="product-grid">
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="DHS Hash" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">DHS Hash 💎</h3>
+                                <div class="product-item-tags">Indica | THC: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="150">R150/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Traditional hand-pressed hash (indica-dominant) with earthy, spicy notes. High THC (40-50%) for deep relaxation. "DHS" may refer to its artisanal, small-batch production.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Golden Cheese" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Golden Cheese 💎</h3>
+                                <div class="product-item-tags">Hybrid | THC: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="150">R150/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Hybrid concentrate with creamy, cheesy terpenes and 70-80% THC. Smooth vapor with euphoric and calming effects. A nod to its golden hue and pungent aroma.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="DeadHot Strawberries" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">DeadHot Strawberries 💎</h3>
+                                <div class="product-item-tags">Indica | THC: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="150">R150/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Indica-dominant live resin (75%+ THC) with sweet strawberry flavors and heavy sedation. Ideal for nighttime relief. Named for its vibrant red color and potent kick.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Ice Cream Cake" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Ice Cream Cake 💎</h3>
+                                <div class="product-item-tags">Indica | THC: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="250">R250/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Dessert-style indica concentrate (80% THC) with vanilla and sugary dough notes. Melts tension away, perfect for stress and insomnia.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Tangie Dream" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Tangie Dream 💎</h3>
+                                <div class="product-item-tags">Sativa | THC: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="250">R250/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Sativa-dominant extract (75% THC) with bold citrus and tropical flavors. Energizing and creative, great for artistic endeavors.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Lemon Haze" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Lemon Haze 💎</h3>
+                                <div class="product-item-tags">Sativa | THC: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="250">R250/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Sativa shatter (78% THC) with sharp lemon-pine terpenes. Uplifting and focus-enhancing, a classic daytime concentrate.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Kief" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Kief 💎</h3>
+                                <div class="product-item-tags">Balanced | THC: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="250">R250/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Powdered trichomes (50-60% THC) for versatile use (topping bowls or pressing hash). Balanced effects with earthy, floral notes.</em></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="devices-vapes">
+                <h2 class="category-title"><span>Devices & Vapes</span> <span class="category-emoji">🎮</span></h2>
+                <div class="product-grid">
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Jackpot 1ml" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Jackpot 1ml 🔋</h3>
+                                <div class="product-item-tags">THC: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="650">R650 each</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Disposable vape pen with high-THC distillate (85%+). Portable and potent, offering consistent hits with minimal odor. Named for its "winning" potency.</em></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="edibles">
+                <h2 class="category-title"><span>Edibles</span> <span class="category-emoji">🍬</span></h2>
+                <div class="product-grid">
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Fried Eggs" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Fried Eggs 🍳</h3>
+                                <div class="product-item-tags">THC: Medium</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="125">R125/5</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Savory gummies (5-pack, 10mg THC each) with egg-like appearance. Relaxing effects ideal for microdosing or mild euphoria.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Cola Gummies" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Cola Gummies 🍬</h3>
+                                <div class="product-item-tags">THC: Medium</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="125">R125/5</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Tangy, soda-flavored edibles (5-pack, 10mg THC). Mellow and uplifting, a nostalgic treat with balanced effects.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Hearts" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Hearts ❤️</h3>
+                                <div class="product-item-tags">THC: Medium</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="125">R125/5</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Fruit-flavored gummies (5-pack, 10mg THC) promoting social warmth and mood elevation. Shaped for sharing or romantic occasions.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/dankleaf.png" alt="Sour Forbidden Fruit" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Sour Forbidden Fruit 🍬</h3>
+                                <div class="product-item-tags">THC: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="250">R250/10 pack</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>High-potency gummies (10-pack, 25mg THC each) with long-lasting relaxation. Inspired by the forbidden fruit’s allure and tart flavor.</em></div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="magic-mushrooms">
+                <h2 class="category-title"><span>Magic Mushrooms</span> <span class="category-emoji">🍄</span></h2>
+                <div class="product-grid">
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/SV10.png" alt="SV10" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">SV10 🍄</h3>
+                                <div class="product-item-tags">Psilocybin: Medium</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="100">R100/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Psilocybe cubensis strain (1g = ~10mg psilocybin). Earthy, introspective, with medium potency. Ideal for beginners or therapeutic use 15.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/fatnat.jpg" alt="Fat Nax" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Fat Nax 🍄</h3>
+                                <div class="product-item-tags">Psilocybin: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="100">R100/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>High-potency P. cubensis (1g = ~15mg psilocybin). Intense visuals and deep introspection. Named for its thick, robust fruiting bodies 57.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/Amazonian.jpg" alt="Amazonian" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Amazonian 🍄</h3>
+                                <div class="product-item-tags">Psilocybin: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="80">R80/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Potent P. cubensis variant (1g = ~12mg psilocybin). Linked to Amazonian shamanic rituals, offering vivid hallucinations 58.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/star.png" alt="Inca Stargazer" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Inca Stargazer 🍄</h3>
+                                <div class="product-item-tags">Psilocybin: Low</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="80">R80/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Gentle P. cubensis (1g = ~8mg psilocybin). Smooth, calming effects inspired by Andean spiritual practices. Ideal for microdosing 7.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/kingdong.png" alt="Kingdong" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Kingdong 🍄</h3>
+                                <div class="product-item-tags">Psilocybin: Medium</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="100">R100/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Potent P. cubensis with distinctive morphology (1g = ~10mg psilocybin). Balanced effects with spiritual clarity. Popular for ceremonial use.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/fatnat.png" alt="Fatnat" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Fatnat 🍄</h3>
+                                <div class="product-item-tags">Psilocybin: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="100">R100/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Dense-fruiting P. cubensis (1g = ~13mg psilocybin). Heavy-bodied experience with intense visuals. Not recommended for first-timers.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/penisenvy.png" alt="Penis Envy" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Penis Envy 🍄</h3>
+                                <div class="product-item-tags">Psilocybin: Very High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="100">R100/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Legendary P. cubensis mutation (1g = ~15mg psilocybin). Extremely potent with profound introspective effects. For experienced users only.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/isg.png" alt="ISG" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">ISG 🍄</h3>
+                                <div class="product-item-tags">Psilocybin: Medium</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="100">R100/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Island strain P. cubensis (1g = ~9mg psilocybin). Clean, euphoric effects with minimal nausea. Ideal for social or creative use.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/shaktnami.png" alt="Shaktnami" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Shaktnami 🍄</h3>
+                                <div class="product-item-tags">Psilocybin: Very High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="100">R100/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Sacred P. cubensis variety (1g = ~16mg psilocybin). Named for its spiritual potency. Expect transformative experiences.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/rustywhyte.png" alt="Rustywhyte" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Rustywhyte 🍄</h3>
+                                <div class="product-item-tags">Psilocybin: Medium</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="100">R100/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Hybrid P. cubensis (1g = ~10mg psilocybin). Rust-colored caps with gentle yet profound effects. Great for nature immersion.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/jackfrost.png" alt="Jackfrost" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Jackfrost 🍄</h3>
+                                <div class="product-item-tags">Psilocybin: Medium-High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="100">R100/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Albino P. cubensis (1g = ~12mg psilocybin). Frosty appearance with crisp, clear-headed effects. Ideal for creative work.</em></div>
+                    </div>
+                    <div class="product-item-card">
+                        <div class="product-item-front">
+                            <div class="product-item-image-area"><img src="assets/zstrain.png" alt="Zstrain" loading="lazy"></div>
+                            <div class="product-item-name-tags-wrapper">
+                                <h3 class="product-item-name">Zstrain 🍄</h3>
+                                <div class="product-item-tags">Psilocybin: High</div>
+                            </div>
+                            <div class="product-item-footer">
+                                <span class="product-item-price" data-price="100">R100/g</span>
+                                <button class="add-to-cart-btn"><i class="ri-add-line"></i></button>
+                            </div>
+                        </div>
+                        <div class="product-item-back"><em>Classic P. cubensis (1g = ~14mg psilocybin). Reliable, well-rounded effects with strong visuals. A community favorite.</em></div>
+                    </div>
+                </div>
+            </section>
+        </main>
+    </div>
+
+    <footer class="site-footer-main">
+        <div class="social-links">
+            <a href="https://www.instagram.com/p/CVciOjKslCn/?utm_source=ig_web_copy_link" target="_blank"><i class="ri-instagram-line"></i> DANK OF ZAR IG</a>
+            <a href="https://www.instagram.com/totallybaked_offical/" target="_blank"><i class="ri-instagram-line"></i> TOTALLYBAKED_OFFICIAL</a>
+        </div>
+        <p>&copy; <span id="currentYear"></span> Dank of Zar. All Rights Reserved.</p>
+        <p>a bird site by <a href="https://smallbusinessthuse.co.za" target="_blank">SBthuse</a></p>
+    </footer>
+
+    <nav class="bottom-page-nav">
+        <a href="index.html"><i class="ri-home-line"></i><span>Home</span></a>
+        <a href="cart.html"><i class="ri-shopping-cart-line"></i><span>Cart</span></a>
+    </nav>
+
+    <script src="script.js"></script>
+</body>
+</html>

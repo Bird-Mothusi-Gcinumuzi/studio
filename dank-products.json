@@ -1,0 +1,306 @@
+[
+  {
+    "name": "Gorilla Daddy 🌿",
+    "category": "cannabis",
+    "price": 150,
+    "description": "Indica-dominant hybrid (60/40) with 22-29% THC, delivering euphoric bliss and deep body relaxation. Earthy, spicy berry flavors with dense forest-green nugs. Ideal for pain, stress, and insomnia relief. Named for its potent, long-lasting effects reminiscent of a gorilla’s strength.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Jerry Gas Can 🌿",
+    "category": "cannabis",
+    "price": 150,
+    "description": "Sativa-leaning (70/30) with 18-19% THC, offering a hazy, creative high and skunky diesel aroma. Energizing yet relaxing, great for fatigue and mood elevation. The name nods to its fuel-like pungency and cerebral effects.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Jamaican Wedding Cake 🌿",
+    "category": "cannabis",
+    "price": 100,
+    "description": "Balanced hybrid (50/50) with 22-29% THC, blending sugary vanilla cake flavors with citrusy euphoria. Promotes relaxation and social connection. A tropical twist on the classic Wedding Cake strain.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Do Si Dos 🌿",
+    "category": "cannabis",
+    "price": 100,
+    "description": "Potent indica (70/30) with pungent earthy notes and high THC (25-30%). Induces heavy body relaxation, ideal for evening use. Named for its cookie-dough aroma and lineage from Girl Scout Cookies.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Cali Orange 🌿",
+    "category": "cannabis",
+    "price": 60,
+    "description": "Sativa-dominant with zesty citrus flavors and medium THC (15-18%). Uplifting yet balanced, perfect for daytime focus. A tribute to California’s sun-grown citrus heritage.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "10g Flower Pack 🌿",
+    "category": "cannabis",
+    "price": 500,
+    "description": "Mixed indoor/outdoor flower (10g) for bulk buyers. Strains may include Cali Orange (sativa) or Do Si Dos (indica). Economical for daily users.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "6g Cigars 🌿",
+    "category": "cannabis",
+    "price": 600,
+    "description": "Hand-rolled with top-shelf flower and wrapped in tobacco or hemp leaf for slow combustion. Rich, flavorful smoke with indica-dominant effects for relaxation. A luxurious, slow-burning experience.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Indoor 1¼ Size 🚬",
+    "category": "cannabis",
+    "price": 90,
+    "description": "Compact pre-rolls with indoor-grown flower (1.25g each), offering a balanced high (20-25% THC). Quick, convenient, and ideal for creative or social settings.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Indoor King Size 🚬",
+    "category": "cannabis",
+    "price": 150,
+    "description": "Larger pre-rolls (1g+) with premium indoor flower, delivering a long-lasting, uplifting high. Smooth burn with flavors accentuated by slow combustion.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Green Door 1¼ 🚬",
+    "category": "cannabis",
+    "price": 60,
+    "description": "Budget-friendly pre-rolls with sativa-dominant greenhouse flower (1.25g). Citrusy and energizing, perfect for daytime use. Named for the \"green door\" of accessible quality.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Green Door King 🚬",
+    "category": "cannabis",
+    "price": 100,
+    "description": "Extended-size version of Green Door’s sativa blend (1g+), offering prolonged euphoria and focus. A cost-effective option for extended sessions.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Moonsticks 🚬",
+    "category": "cannabis",
+    "price": 200,
+    "description": "Infused with distillate + kief for very high THC (30%+). Intense, long-lasting effects with a smooth burn. Named for its celestial, mind-expanding potency.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "5 Pack 🚬",
+    "category": "cannabis",
+    "price": 250450,
+    "description": "Curated bundle of pre-rolls (mixed strains), offering variety and convenience. Ideal for sampling or gifting. Strains may include hybrids like Jamaican Wedding Cake.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "10 Pack 🚬",
+    "category": "cannabis",
+    "price": 750,
+    "description": "Bulk pre-roll set (10 units) for value-focused buyers. Consistent quality with options like indica-heavy Do Si Dos or balanced hybrids.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "DHS Hash 💎",
+    "category": "cannabis",
+    "price": 150,
+    "description": "Traditional hand-pressed hash (indica-dominant) with earthy, spicy notes. High THC (40-50%) for deep relaxation. \"DHS\" may refer to its artisanal, small-batch production.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Golden Cheese 💎",
+    "category": "cannabis",
+    "price": 150,
+    "description": "Hybrid concentrate with creamy, cheesy terpenes and 70-80% THC. Smooth vapor with euphoric and calming effects. A nod to its golden hue and pungent aroma.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "DeadHot Strawberries 💎",
+    "category": "cannabis",
+    "price": 150,
+    "description": "Indica-dominant live resin (75%+ THC) with sweet strawberry flavors and heavy sedation. Ideal for nighttime relief. Named for its vibrant red color and potent kick.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Ice Cream Cake 💎",
+    "category": "cannabis",
+    "price": 250,
+    "description": "Dessert-style indica concentrate (80% THC) with vanilla and sugary dough notes. Melts tension away, perfect for stress and insomnia.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Tangie Dream 💎",
+    "category": "cannabis",
+    "price": 250,
+    "description": "Sativa-dominant extract (75% THC) with bold citrus and tropical flavors. Energizing and creative, great for artistic endeavors.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Lemon Haze 💎",
+    "category": "cannabis",
+    "price": 250,
+    "description": "Sativa shatter (78% THC) with sharp lemon-pine terpenes. Uplifting and focus-enhancing, a classic daytime concentrate.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Kief 💎",
+    "category": "cannabis",
+    "price": 250,
+    "description": "Powdered trichomes (50-60% THC) for versatile use (topping bowls or pressing hash). Balanced effects with earthy, floral notes.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Jackpot 1ml 🔋",
+    "category": "cannabis",
+    "price": 650,
+    "description": "Disposable vape pen with high-THC distillate (85%+). Portable and potent, offering consistent hits with minimal odor. Named for its \"winning\" potency.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Fried Eggs 🍳",
+    "category": "cannabis",
+    "price": 1255,
+    "description": "Savory gummies (5-pack, 10mg THC each) with egg-like appearance. Relaxing effects ideal for microdosing or mild euphoria.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Cola Gummies 🍬",
+    "category": "cannabis",
+    "price": 1255,
+    "description": "Tangy, soda-flavored edibles (5-pack, 10mg THC). Mellow and uplifting, a nostalgic treat with balanced effects.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Hearts ❤️",
+    "category": "cannabis",
+    "price": 1255,
+    "description": "Fruit-flavored gummies (5-pack, 10mg THC) promoting social warmth and mood elevation. Shaped for sharing or romantic occasions.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Sour Forbidden Fruit 🍬",
+    "category": "cannabis",
+    "price": 25010,
+    "description": "High-potency gummies (10-pack, 25mg THC each) with long-lasting relaxation. Inspired by the forbidden fruit’s allure and tart flavor.",
+    "imageUrl": "assets/dankleaf.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "SV10 🍄",
+    "category": "cannabis",
+    "price": 100,
+    "description": "Psilocybe cubensis strain (1g = ~10mg psilocybin). Earthy, introspective, with medium potency. Ideal for beginners or therapeutic use 15.",
+    "imageUrl": "assets/SV10.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Fat Nax 🍄",
+    "category": "cannabis",
+    "price": 100,
+    "description": "High-potency P. cubensis (1g = ~15mg psilocybin). Intense visuals and deep introspection. Named for its thick, robust fruiting bodies 57.",
+    "imageUrl": "assets/fatnat.jpg",
+    "stockLevel": 100
+  },
+  {
+    "name": "Amazonian 🍄",
+    "category": "cannabis",
+    "price": 80,
+    "description": "Potent P. cubensis variant (1g = ~12mg psilocybin). Linked to Amazonian shamanic rituals, offering vivid hallucinations 58.",
+    "imageUrl": "assets/Amazonian.jpg",
+    "stockLevel": 100
+  },
+  {
+    "name": "Inca Stargazer 🍄",
+    "category": "cannabis",
+    "price": 80,
+    "description": "Gentle P. cubensis (1g = ~8mg psilocybin). Smooth, calming effects inspired by Andean spiritual practices. Ideal for microdosing 7.",
+    "imageUrl": "assets/star.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Kingdong 🍄",
+    "category": "cannabis",
+    "price": 100,
+    "description": "Potent P. cubensis with distinctive morphology (1g = ~10mg psilocybin). Balanced effects with spiritual clarity. Popular for ceremonial use.",
+    "imageUrl": "assets/kingdong.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Fatnat 🍄",
+    "category": "cannabis",
+    "price": 100,
+    "description": "Dense-fruiting P. cubensis (1g = ~13mg psilocybin). Heavy-bodied experience with intense visuals. Not recommended for first-timers.",
+    "imageUrl": "assets/fatnat.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Penis Envy 🍄",
+    "category": "cannabis",
+    "price": 100,
+    "description": "Legendary P. cubensis mutation (1g = ~15mg psilocybin). Extremely potent with profound introspective effects. For experienced users only.",
+    "imageUrl": "assets/penisenvy.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "ISG 🍄",
+    "category": "cannabis",
+    "price": 100,
+    "description": "Island strain P. cubensis (1g = ~9mg psilocybin). Clean, euphoric effects with minimal nausea. Ideal for social or creative use.",
+    "imageUrl": "assets/isg.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Shaktnami 🍄",
+    "category": "cannabis",
+    "price": 100,
+    "description": "Sacred P. cubensis variety (1g = ~16mg psilocybin). Named for its spiritual potency. Expect transformative experiences.",
+    "imageUrl": "assets/shaktnami.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Rustywhyte 🍄",
+    "category": "cannabis",
+    "price": 100,
+    "description": "Hybrid P. cubensis (1g = ~10mg psilocybin). Rust-colored caps with gentle yet profound effects. Great for nature immersion.",
+    "imageUrl": "assets/rustywhyte.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Jackfrost 🍄",
+    "category": "cannabis",
+    "price": 100,
+    "description": "Albino P. cubensis (1g = ~12mg psilocybin). Frosty appearance with crisp, clear-headed effects. Ideal for creative work.",
+    "imageUrl": "assets/jackfrost.png",
+    "stockLevel": 100
+  },
+  {
+    "name": "Zstrain 🍄",
+    "category": "cannabis",
+    "price": 100,
+    "description": "Classic P. cubensis (1g = ~14mg psilocybin). Reliable, well-rounded effects with strong visuals. A community favorite.",
+    "imageUrl": "assets/zstrain.png",
+    "stockLevel": 100
+  }
+]
