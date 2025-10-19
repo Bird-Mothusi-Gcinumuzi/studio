@@ -1,8 +1,10 @@
+import { Timestamp } from "firebase/firestore";
+
 export type User = {
   id: string;
   name: string;
   email: string;
-  status: 'approved' | 'pending' | 'banned';
+  status: 'active' | 'pending' | 'deactivated';
   role: 'admin' | 'customer';
 };
 
@@ -14,7 +16,7 @@ export type Product = {
   imageUrl: string;
   imageHint: string;
   category: 'cannabis' | 'merch';
-  stock: number;
+  stockLevel: number;
 };
 
 export type CartItem = {
@@ -25,8 +27,7 @@ export type CartItem = {
 export type CheckoutLog = {
   id: string;
   userId: string;
-  userName: string;
-  items: { productName: string; quantity: number; price: number }[];
-  total: number;
-  timestamp: Date;
+  cartSnapshot: { productName: string; quantity: number; price: number }[];
+  totalValue: number;
+  timestamp: Timestamp;
 };

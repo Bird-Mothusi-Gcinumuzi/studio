@@ -10,7 +10,8 @@ import Image from 'next/image';
 import Link from 'next/link';
 import { useTransition } from 'react';
 import { useToast } from '@/hooks/use-toast';
-import { processCheckout } from './actions';
+import { getFunctions, httpsCallable } from 'firebase/functions';
+import { app, auth } from '@/lib/firebase';
 
 export default function CartPage() {
   const { cartItems, updateQuantity, removeFromCart, cartTotal, clearCart } = useCart();
@@ -19,30 +20,38 @@ export default function CartPage() {
 
   const handleCheckout = () => {
     startTransition(async () => {
-      const result = await processCheckout(cartItems);
+      const functions = getFunctions(app);
+      const triggerCheckoutAndWhatsapp = httpsCallable(functions, 'triggerCheckoutAndWhatsapp');
 
-      if (result.error) {
-        toast({
-          variant: "destructive",
-          title: "Checkout Error",
-          description: result.error,
+      try {
+        const result = await triggerCheckoutAndWhatsapp({
+          uid: auth.currentUser?.uid,
+          cartContents: cartItems.map(item => ({
+            id: item.product.id,
+            name: item.product.name,
+            price: item.product.price,
+            quantity: item.quantity,
+          })),
         });
-        return;
-      }
-      
-      if (result.success && result.whatsappMessage) {
-        const encodedMessage = encodeURIComponent(result.whatsappMessage);
-        const whatsappUrl = `https://wa.me/${result.whatsappNumber}?text=${encodedMessage}`;
-        
+
+        const data = result.data as { whatsappUrl: string };
+
         // Open WhatsApp in a new tab
-        window.open(whatsappUrl, '_blank');
-        
+        window.open(data.whatsappUrl, '_blank');
+
         toast({
-          title: "Order Sent!",
-          description: "Your order has been formatted and sent to WhatsApp for completion.",
+          title: 'Order Sent!',
+          description: 'Your order has been formatted and sent to WhatsApp for completion.',
         });
 
         clearCart();
+      } catch (error) {
+        console.error('Error triggering checkout:', error);
+        toast({
+          variant: 'destructive',
+          title: 'Checkout Error',
+          description: 'There was an error processing your checkout. Please try again.',
+        });
       }
     });
   };

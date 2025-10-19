@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Toaster } from '@/components/ui/toaster';
 import './globals.css';
+import AuthWrapper from '@/components/auth-wrapper';
 
 export const metadata: Metadata = {
   title: 'Verdant Vista',
@@ -20,7 +21,7 @@ export default function RootLayout({
         <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Roboto:wght@400;500;700&display=swap" rel="stylesheet" />
       </head>
       <body className="font-body antialiased">
-        {children}
+        <AuthWrapper>{children}</AuthWrapper>
         <Toaster />
       </body>
     </html>

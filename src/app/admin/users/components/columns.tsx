@@ -11,14 +11,26 @@ import {
   DropdownMenuLabel,
   DropdownMenuSeparator,
   DropdownMenuTrigger,
+  DropdownMenuSub,
+  DropdownMenuSubTrigger,
+  DropdownMenuPortal,
+  DropdownMenuSubContent,
 } from '@/components/ui/dropdown-menu';
 import { Badge } from '@/components/ui/badge';
 import { cn } from '@/lib/utils';
+import { doc, getFirestore, updateDoc } from 'firebase/firestore';
+import { app } from '@/lib/firebase';
 
 const statusStyles = {
-    approved: 'bg-status-green hover:bg-status-green/80',
+    active: 'bg-status-green hover:bg-status-green/80',
     pending: 'bg-status-yellow hover:bg-status-yellow/80',
-    banned: 'bg-status-red hover:bg-status-red/80',
+    deactivated: 'bg-status-red hover:bg-status-red/80',
+}
+
+async function updateUserStatus(userId: string, status: 'active' | 'pending' | 'deactivated') {
+  const db = getFirestore(app);
+  const userRef = doc(db, 'users', userId);
+  await updateDoc(userRef, { status });
 }
 
 export const columns: ColumnDef<User>[] = [
@@ -80,6 +92,16 @@ export const columns: ColumnDef<User>[] = [
               Copy user ID
             </DropdownMenuItem>
             <DropdownMenuSeparator />
+            <DropdownMenuSub>
+              <DropdownMenuSubTrigger>Change Status</DropdownMenuSubTrigger>
+              <DropdownMenuPortal>
+                <DropdownMenuSubContent>
+                  <DropdownMenuItem onClick={() => updateUserStatus(user.id, 'active')}>Active</DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => updateUserStatus(user.id, 'pending')}>Pending</DropdownMenuItem>
+                  <DropdownMenuItem onClick={() => updateUserStatus(user.id, 'deactivated')}>Deactivated</DropdownMenuItem>
+                </DropdownMenuSubContent>
+              </DropdownMenuPortal>
+            </DropdownMenuSub>
             <DropdownMenuItem>View details</DropdownMenuItem>
             <DropdownMenuItem>Edit user</DropdownMenuItem>
             <DropdownMenuItem className="text-destructive focus:text-destructive focus:bg-destructive/10">Delete user</DropdownMenuItem>
